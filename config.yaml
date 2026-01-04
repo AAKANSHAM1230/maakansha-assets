@@ -1,0 +1,9 @@
+it_provisioning:
+  default_asset: "Chromebook Enterprise"
+  rules:
+    - keywords: ["engineer", "developer", "swe", "sce", "ai", "data scientist"]
+      asset: "MacBook Pro 16-inch (M3 Max)"
+    - keywords: ["designer", "creative", "marketing", "ux", "ui"]
+      asset: "MacBook Air 15-inch"
+    - keywords: ["executive", "vp", "director", "c-suite", "ceo", "chief"]
+      asset: "MacBook Pro 14-inch (M3 Pro)"
