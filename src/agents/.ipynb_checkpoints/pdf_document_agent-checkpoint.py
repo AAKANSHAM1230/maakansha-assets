@@ -12,25 +12,17 @@ class PDFDocumentAgent:
 
     def run(self, employee: Employee) -> str:
         logger.info(f"Generating PDF Contract for {employee.name}")
-
-        # 1. Initialize PDF
         pdf = FPDF()
         pdf.add_page()
-        
-        # 2. Add Professional Header
         pdf.set_font("Helvetica", "B", 20)
-        # Cell(width, height, text, border, newline, align)
         pdf.cell(0, 10, "OFFICIAL EMPLOYMENT AGREEMENT", 0, 1, 'C')
-        pdf.ln(10) # Add vertical space
-        
-        # 3. Add Details
+        pdf.ln(10) 
         pdf.set_font("Helvetica", size=12)
         pdf.cell(0, 10, f"Date: {datetime.now().strftime('%B %d, %Y')}", 0, 1)
         pdf.cell(0, 10, f"Candidate: {employee.name}", 0, 1)
         pdf.cell(0, 10, f"Role: {employee.role}", 0, 1)
         pdf.ln(10)
 
-        # 4. Add Body
         pdf.set_font("Helvetica", size=11)
         body = (
             f"Dear {employee.name},\n\n"
@@ -44,17 +36,10 @@ class PDFDocumentAgent:
         )
         pdf.multi_cell(0, 8, body)
         pdf.ln(20)
-
-        # 5. Add Signature Area
         pdf.cell(0, 10, "__________________________", 0, 1)
         pdf.cell(0, 10, f"Signed, {employee.name}", 0, 1)
 
-        # 6. Generate Bytes
-        # fpdf2 .output() returns a bytearray string
-        pdf_bytes = pdf.output()
-
-        # 7. Upload to Structured Folder
-        # e.g., candidates/dwight_schrute/legal/offer_letter.pdf
+        pdf_bytes = pdf.output() #fpdf2.output() = bytearr string
         clean_name = employee.name.replace(' ', '_').lower()
         filename = f"candidates/{clean_name}/legal/offer_letter.pdf"
         

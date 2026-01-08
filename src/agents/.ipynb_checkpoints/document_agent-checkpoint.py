@@ -12,7 +12,7 @@ class DocumentAgent:
     def run(self, employee: Employee) -> str:
         logger.info(f"Generating Contract for {employee.name}")
         
-        # 1. Create Contract Text
+        #sample letter
         text = f"""
         OFFICIAL EMPLOYMENT OFFER
         Date: {datetime.now().strftime('%Y-%m-%d')}

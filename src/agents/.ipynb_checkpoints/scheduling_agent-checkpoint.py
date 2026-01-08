@@ -19,7 +19,7 @@ class SchedulingAgent:
             start = dt.replace(hour=9, minute=0)
             end = start + timedelta(hours=1)
         except:
-            return "Failed: Invalid Date"
+            return "Invalid date"
 
         event = {
             'summary': f"Orientation: {employee.name}",

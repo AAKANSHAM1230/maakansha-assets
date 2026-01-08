@@ -12,7 +12,6 @@ class ITProvisionAgent:
     def _load_config(self, path: str) -> dict:
         try:
             if not os.path.exists(path):
-                # Try absolute path
                 path = os.path.join(os.getcwd(), path)
             with open(path, 'r') as f:
                 data = yaml.safe_load(f)
@@ -22,7 +21,7 @@ class ITProvisionAgent:
             return {}
 
     def generate_email(self, name: str) -> str:
-        # LOGIC: firstname.lastname@company.com
+        #firstname.lastname@company.com
         clean = name.lower().replace(" ", ".")
         return f"{clean}@company.com"
 
@@ -33,7 +32,7 @@ class ITProvisionAgent:
         rules = self.config.get('rules', [])
         default_asset = self.config.get('default_asset', "Standard Laptop")
 
-        # 1. Check Config Rules
+        #config rules in the yaml
         for rule in rules:
             keywords = rule.get('keywords', [])
             asset = rule.get('asset')

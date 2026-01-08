@@ -16,7 +16,6 @@ class AdvancedGCSService:
             self.online = False
 
     def upload_bytes(self, filename: str, content: bytes, content_type: str) -> str:
-        """Uploads raw bytes (PDFs, Images) to GCS."""
         if not self.online: return "GCS_OFFLINE"
         
         try:
