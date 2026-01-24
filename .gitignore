@@ -1,13 +1,11 @@
-# Ignore Terraform binary folder
 .terraform/
+*.tfstate
+*.tfstate.backup
 .terraform.lock.hcl
-terraform.tfstate
-terraform.tfstate.backup
-
-# Ignore Python cache
 __pycache__/
 *.pyc
-
-# Ignore environment configs
 .env
 .DS_Store
+adk-env/
+*.log
+.adk/

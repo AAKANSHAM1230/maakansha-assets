@@ -10,3 +10,5 @@ pydantic
 python-dateutil
 pyyaml
 fpdf2
+google-adk>=0.1.0
+google-cloud-bigquery
